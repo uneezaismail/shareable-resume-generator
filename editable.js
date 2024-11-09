@@ -4,12 +4,14 @@ var editButtonDiv = document.getElementById('edit-div');
 editButton.addEventListener('click', function () {
     var resumeForm = document.getElementById('resumeForm');
     var resumeTemplate = document.getElementById('container');
+    var url = document.getElementById("share-id");
     // Show the form to allow editing
     resumeForm.style.display = 'block';
     editButtonDiv.style.display = 'none';
+    url.style.display = 'none';
     // Hide the generated resume to switch back to form view
     resumeTemplate.style.display = 'none';
-    // Populate form fields with previous data for personal information
+    //  form fields with previous data for personal information
     document.getElementById('Fname').value =
         document.getElementById('f-name').textContent || '';
     document.getElementById('Lname').value =
@@ -26,7 +28,7 @@ editButton.addEventListener('click', function () {
         document.getElementById('link').innerHTML || '';
     document.getElementById('email').value =
         document.getElementById('g-mail').innerHTML || '';
-    // Populate Work Experience section
+    // Work Experience section
     var workExperience = document.getElementById("work-li");
     var workExperienceFields = document.querySelectorAll(".weField");
     var workItems = workExperience.querySelectorAll("li");
@@ -35,7 +37,7 @@ editButton.addEventListener('click', function () {
             textarea.value = workItems[index].textContent || ''; // Ensure you are pulling textContent
         }
     });
-    // Populate Academic Qualification section
+    //  Academic Qualification section
     var academicQualification = document.getElementById("aq-li");
     var academicFields = document.querySelectorAll(".aqField");
     var academicItems = academicQualification.querySelectorAll("li");
@@ -44,7 +46,7 @@ editButton.addEventListener('click', function () {
             textarea.value = academicItems[index].textContent || ''; // Ensure you are pulling textContent
         }
     });
-    // Populate Skills section
+    //  Skills section
     var skills = document.getElementById("sk-li");
     var skillFields = document.querySelectorAll(".skField");
     var skillItems = skills.querySelectorAll("li");
@@ -55,9 +57,6 @@ editButton.addEventListener('click', function () {
     });
 });
 ///download
-// function printResume(){
-//     window.print()
-//   }
 function printResume() {
     // Get values from input fields
     var firstName = document.getElementById('Fname').value;

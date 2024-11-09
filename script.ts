@@ -95,11 +95,11 @@ function generateResume(event: Event): void {
     (document.getElementById("fb") as HTMLAnchorElement).innerHTML = facebook;
     (document.getElementById("g-mail") as HTMLParagraphElement).innerHTML = email;
     (document.getElementById("objective-b") as HTMLParagraphElement).innerHTML = objective;
-
+    const url = document.getElementById("share-id") as HTMLDivElement
     resumeForm.style.display = "none";
     resumeTemplate.style.display = "grid";
     editButtonDiv.style.display = "flex";
-
+url.style.display = 'flex'
     // Work Experience Fields
     const experiences = document.getElementsByClassName("weField") as HTMLCollectionOf<HTMLTextAreaElement>;
     let experienceStr = "";
@@ -144,7 +144,7 @@ if (fileInput.files && fileInput.files.length > 0) {
         };
 
         reader.readAsDataURL(file); 
-    
+   
 }
 
 
@@ -166,7 +166,7 @@ if (linkedin) {
     const username = `${firstName.value.toLowerCase()}-${lastName.value.toLowerCase()}`;
     
     const baseUrl = window.location.origin;
-    const resumeUrl = `${baseUrl}/username/resume/${username}`;
+    const resumeUrl = `${baseUrl}/${username}-resume.html`;
     
     const urlContainer = document.getElementById("share-id")!;
     urlContainer.innerHTML = `
@@ -184,11 +184,14 @@ if (linkedin) {
             console.error("Failed to copy URL: ", err);
         }
     });
+    const url = document.getElementById("share-id") as HTMLDivElement
+    url.style.display = 'flex'
 }
 
   
 
   document.getElementById("share-btn")?.addEventListener("click",()=>{
     ShareableUrl()
+   
   })
 

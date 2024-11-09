@@ -112,9 +112,11 @@ function generateResume(event) {
     document.getElementById("fb").innerHTML = facebook;
     document.getElementById("g-mail").innerHTML = email;
     document.getElementById("objective-b").innerHTML = objective;
+    var url = document.getElementById("share-id");
     resumeForm.style.display = "none";
     resumeTemplate.style.display = "grid";
     editButtonDiv.style.display = "flex";
+    url.style.display = 'flex';
     // Work Experience Fields
     var experiences = document.getElementsByClassName("weField");
     var experienceStr = "";
@@ -167,23 +169,34 @@ function ShareableUrl() {
     var lastName = document.getElementById("Lname");
     var username = "".concat(firstName.value.toLowerCase(), "-").concat(lastName.value.toLowerCase());
     var baseUrl = window.location.origin;
-    var resumeUrl = "".concat(baseUrl, "/username/resume/").concat(username);
+    var resumeUrl = "".concat(baseUrl, "/").concat(username, "-resume.html");
     var urlContainer = document.getElementById("share-id");
     urlContainer.innerHTML = "\n      <a href=\"".concat(resumeUrl, "\" target=\"_blank\" id=\"shareable-link\">").concat(resumeUrl, "</a>\n      <button id=\"copy-btn\">Copy Link</button>\n    ");
     var copyButton = document.getElementById("copy-btn");
     copyButton.addEventListener("click", function () { return __awaiter(_this, void 0, void 0, function () {
-        var linkText;
+        var linkText, err_1;
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
                     linkText = document.getElementById("shareable-link");
-                    return [4 /*yield*/, navigator.clipboard.writeText(linkText.href)];
+                    _a.label = 1;
                 case 1:
+                    _a.trys.push([1, 3, , 4]);
+                    return [4 /*yield*/, navigator.clipboard.writeText(linkText.href)];
+                case 2:
                     _a.sent();
-                    return [2 /*return*/];
+                    alert("URL copied to clipboard!");
+                    return [3 /*break*/, 4];
+                case 3:
+                    err_1 = _a.sent();
+                    console.error("Failed to copy URL: ", err_1);
+                    return [3 /*break*/, 4];
+                case 4: return [2 /*return*/];
             }
         });
     }); });
+    var url = document.getElementById("share-id");
+    url.style.display = 'flex';
 }
 (_a = document.getElementById("share-btn")) === null || _a === void 0 ? void 0 : _a.addEventListener("click", function () {
     ShareableUrl();

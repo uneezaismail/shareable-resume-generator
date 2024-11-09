@@ -4,15 +4,15 @@ const editButtonDiv = document.getElementById('edit-div') as HTMLButtonElement;
 editButton.addEventListener('click', () => {
     const resumeForm = document.getElementById('resumeForm') as HTMLFormElement;
     const resumeTemplate = document.getElementById('container') as HTMLDivElement;
-
+const url = document.getElementById("share-id") as HTMLDivElement
     // Show the form to allow editing
     resumeForm.style.display = 'block';
     editButtonDiv.style.display = 'none';
-
+url.style.display = 'none'
     // Hide the generated resume to switch back to form view
     resumeTemplate.style.display = 'none';
 
-    // Populate form fields with previous data for personal information
+    //  form fields with previous data for personal information
     (document.getElementById('Fname') as HTMLInputElement).value = 
         (document.getElementById('f-name') as HTMLElement).textContent || '';
     (document.getElementById('Lname') as HTMLInputElement).value = 
@@ -30,7 +30,7 @@ editButton.addEventListener('click', () => {
     (document.getElementById('email') as HTMLInputElement).value = 
         (document.getElementById('g-mail') as HTMLParagraphElement).innerHTML || '';
 
-    // Populate Work Experience section
+    // Work Experience section
     const workExperience = document.getElementById("work-li") as HTMLElement;
     const workExperienceFields = document.querySelectorAll(".weField") as NodeListOf<HTMLTextAreaElement>;
     const workItems = workExperience.querySelectorAll("li");
@@ -40,7 +40,7 @@ editButton.addEventListener('click', () => {
         }
     });
 
-    // Populate Academic Qualification section
+    //  Academic Qualification section
     const academicQualification = document.getElementById("aq-li") as HTMLElement;
     const academicFields = document.querySelectorAll(".aqField") as NodeListOf<HTMLTextAreaElement>;
     const academicItems = academicQualification.querySelectorAll("li");
@@ -50,7 +50,7 @@ editButton.addEventListener('click', () => {
         }
     });
 
-    // Populate Skills section
+    //  Skills section
     const skills = document.getElementById("sk-li") as HTMLElement;
     const skillFields = document.querySelectorAll(".skField") as NodeListOf<HTMLTextAreaElement>;
     const skillItems = skills.querySelectorAll("li");
@@ -63,11 +63,6 @@ editButton.addEventListener('click', () => {
 
 
 ///download
-
-// function printResume(){
-//     window.print()
-//   }
-
 
 function printResume(): void {
     // Get values from input fields
