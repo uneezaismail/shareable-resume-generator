@@ -20,6 +20,9 @@ function addNewWeField(): void {
     container.insertBefore(newFieldDiv, addButton);
 }
 
+document.getElementById("add-work")?.addEventListener("click", ()=>{
+    addNewWeField()
+})
 
 function addNewAqField(): void {
     const container = document.getElementById('aq-container') as HTMLDivElement;
@@ -42,6 +45,10 @@ function addNewAqField(): void {
     const addButton = container.querySelector('.btn')!;
     container.insertBefore(newFieldDiv, addButton);
 }
+document.getElementById("add-academic")?.addEventListener("click", ()=>{
+    addNewAqField()
+})
+
 
 function addNewSkField(): void {
     const container = document.getElementById('sk-container') as HTMLDivElement;
@@ -64,6 +71,10 @@ function addNewSkField(): void {
     const addButton = container.querySelector('.btn')!;
     container.insertBefore(newFieldDiv, addButton);
 }
+
+document.getElementById("add-skill")?.addEventListener("click", ()=>{
+    addNewSkField()
+})
 
 document.addEventListener("DOMContentLoaded", () => {
     const resumeForm = document.getElementById("resumeForm") as HTMLFormElement;

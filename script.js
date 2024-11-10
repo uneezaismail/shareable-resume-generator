@@ -34,7 +34,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-var _a;
+var _a, _b, _c, _d;
 function addNewWeField() {
     var container = document.getElementById('wexp-container');
     var newFieldDiv = document.createElement('div');
@@ -52,6 +52,9 @@ function addNewWeField() {
     var addButton = container.querySelector('.btn');
     container.insertBefore(newFieldDiv, addButton);
 }
+(_a = document.getElementById("add-work")) === null || _a === void 0 ? void 0 : _a.addEventListener("click", function () {
+    addNewWeField();
+});
 function addNewAqField() {
     var container = document.getElementById('aq-container');
     var newFieldDiv = document.createElement('div');
@@ -69,6 +72,9 @@ function addNewAqField() {
     var addButton = container.querySelector('.btn');
     container.insertBefore(newFieldDiv, addButton);
 }
+(_b = document.getElementById("add-academic")) === null || _b === void 0 ? void 0 : _b.addEventListener("click", function () {
+    addNewAqField();
+});
 function addNewSkField() {
     var container = document.getElementById('sk-container');
     var newFieldDiv = document.createElement('div');
@@ -86,6 +92,9 @@ function addNewSkField() {
     var addButton = container.querySelector('.btn');
     container.insertBefore(newFieldDiv, addButton);
 }
+(_c = document.getElementById("add-skill")) === null || _c === void 0 ? void 0 : _c.addEventListener("click", function () {
+    addNewSkField();
+});
 document.addEventListener("DOMContentLoaded", function () {
     var resumeForm = document.getElementById("resumeForm");
     resumeForm.addEventListener("submit", generateResume);
@@ -198,6 +207,6 @@ function ShareableUrl() {
     var url = document.getElementById("share-id");
     url.style.display = 'flex';
 }
-(_a = document.getElementById("share-btn")) === null || _a === void 0 ? void 0 : _a.addEventListener("click", function () {
+(_d = document.getElementById("share-btn")) === null || _d === void 0 ? void 0 : _d.addEventListener("click", function () {
     ShareableUrl();
 });
